@@ -1,10 +1,5 @@
 <div class="container">
-    <div class="todo-container">
-        {{#each model as |todo|}}
-            <div class="todo">
-                <div class="todo-title">{{todo.title}}</div>
-                <div class="todo-content">{{todo.content}}</div>
-            </div>
-        {{/each}}
-    </div>
+  {{#todo-container model=model as |todo|}}
+    {{my-todo model=todo}}
+  {{/todo-container}}
 </div>
