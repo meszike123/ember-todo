@@ -24,6 +24,7 @@ test 'find todo container', (assert) ->
 
 
 test 'find todos', (assert) ->
+  server.createList('todo', 3)
   visit '/'
 
   andThen ->
@@ -33,19 +34,22 @@ test 'find todos', (assert) ->
 
 
 test 'check first tod title', (assert) ->
+  server.createList('todo', 3)
+
   visit '/'
 
   andThen ->
 
     first = find('.todo-container .todo:eq(0) .todo-title')
-    assert.equal(first.text(), "First")
+    assert.equal(first.text(), "Title 0")
 
 
 
 test 'find todos', (assert) ->
+  server.createList('todo', 3);
   visit '/'
 
   andThen ->
 
     third = find('.todo-container .todo:eq(2) .todo-content')
-    assert.equal(third.text(), "This is my third todo")
+    assert.equal(third.text(), "Content 2")
